@@ -23,19 +23,19 @@
         </header>
         <div id="input">
             <form action=submit>
-                <input type="text">
-                <button>Submit</button>
+                <input type="number" max="100" min="1" placeholder="50">
+                <button>GUESS!</button>
             </form>
         </div>
-        <div id="result">
-            
-            <div id="graphic"></div>
-            <div id="status"></div> 
-        </div>
         <div id="hint">
-            <div id="next-step"></div>
-            <div id="attempts"></div>
+            <div id="next-step"><p>Enter a number between 20 and 100</p></div>
+            <div id="attempts"><p>You have 3 guesses left!</p></div>
         </div>
+        <div id="result">
+            <div id="graphic"></div>
+            <div id="status">Try Again</div> 
+        </div>
+        
     </section>
     <section class="placeholder"></section>
 
