@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@300&family=Source+Sans+Pro&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --light-grey: #efefef;
+    --dark-grey: #303030;
+    --orange: #fe9900;
+
+}
+
+body{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--dark-grey);
+    font-family: 'Inter', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: white;
+    padding: 50px;
+}
+
+section{
+    background-color: white;
+    min-height: 600px;
+    width: 375px;
+}
