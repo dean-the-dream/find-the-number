@@ -16,17 +16,45 @@
 body{
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    /* align-items: center; */
     background-color: var(--dark-grey);
     font-family: 'Inter', sans-serif;
     font-family: 'Roboto', sans-serif;
     font-family: 'Source Sans Pro', sans-serif;
     color: white;
     padding: 50px;
+    height: 100vh;
+    min-height: fit-content;
 }
 
 section{
     background-color: white;
+    height: 85%;
     min-height: 600px;
-    width: 375px;
+    width: 27%;
+    min-width: 375px;
 }
+
+section#instructions, section.placeholder{
+    margin-top: 7%;
+}
+
+#input header {
+    display:flex;
+    width: 100%;
+    height: 50%;
+}
+
+#input header div {
+    width: 50%;
+    
+}
+#input header #title {
+    background-color: var(--orange);
+}
+
+#input header #number-pic {
+    background: url("./img/numbers.jpg")
+}
+
+
