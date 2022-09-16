@@ -4,9 +4,10 @@ let userGuess = document.querySelector("input");
 let userGuessInt;
 let lowNum = 1;
 let highNum = 100;
-let guesses = 5;
+let guesses = 10;
 let attemptsParent = document.querySelector("#attempts p");
 let statusParent = document.querySelector("#status p");
+let statusChild;
 let nextStepParent = document.querySelector("#next-step p");  //.innerHTML = `<p>You have ${guesses} guesses left!</p>`
 function checkGuess(e) {
     
@@ -20,7 +21,7 @@ function checkGuess(e) {
         } else {
             guessWrong()
         }
-        // (userGuessInt == randomNumber) ? guessRight() : guessWrong(); 
+        
     }
     guesses--
 }
@@ -31,11 +32,12 @@ function guessWrong() {
         statusChild = "You Guessed Incorrectly";
         if(userGuessInt > randomNumber){
                 console.log("The Guess Is High")
-                highNum = userGuess;
+                highNum = userGuessInt;
             } else {
                 console.log("The Guess Is Low")
-                lowNum = userGuess;
+                lowNum = userGuessInt;
             }
+            displayResults()
     } 
 
     
@@ -44,15 +46,20 @@ function winOrLose () {
     if(userGuessInt == randomNumber){
         statusChild = "You Guessed Correctly";
         nextStepParent.innerText = `Click Here to Play Again`
+    } else {
+        statusChild = "You Lose!";
+        nextStepParent.innerText = `Click Here to Play Again`
     }
+    displayResults();
 
 }
 
 
 function displayResults () {
-    statusParent.replaceChild(statusChild);
+    console.log("Displaying Results")
+    statusParent.innerText = statusChild;
     attemptsParent.innerText = `You have ${guesses} guesses left!`;
-    nextStepParent.innerText = `Enter a number between ${highNum} and ${lowNum}`;
+    nextStepParent.innerText = `Enter a number between ${lowNum} and ${highNum}`;
 }
 
 
