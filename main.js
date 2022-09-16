@@ -9,7 +9,10 @@ const attemptsParent = document.querySelector("#attempts p");
 const statusParent = document.querySelector("#status p");
 let statusChild;
 const nextStepParent = document.querySelector("#next-step p");
-
+const tryAgain = document.querySelector("#try-again");
+attemptsParent.innerHTML=`You have ${guesses} guesses!`
+userGuess.focus();
+userGuess.select();
 
 function checkGuess(e) {
     e.preventDefault();
@@ -49,9 +52,9 @@ function winOrLose () {
         nextStepParent.innerText = `Click Here to Play Again`
     } else {
         statusChild = "You Lose!";
-        nextStepParent.innerText = `Click Here to Play Again`
+        nextStepParent.innerText = `You Used all of your guesses.`
     }
-    displayResults();
+    tryAgain.style.opacity = "1";
 
 }
 
@@ -65,6 +68,7 @@ function displayResults () {
             break;  
         case 1:
             attemptsParent.innerText = `You have ${guesses} guess left!`;  
+            tryAgain.style = "transparency: 1;"
             break;
         case 0:
             attemptsParent.innerText = `No More Guesses!`;  
@@ -72,13 +76,18 @@ function displayResults () {
         default:
             attemptsParent.innerText = `You have ${guesses} guesses left!`
     }
-
+    
     nextStepParent.innerText = `Enter a number between ${lowNum} and ${highNum}`;
 }
 
 
-function tryAgain(){
-    
+function restart(){
+    tryAgain.style = null;
+    guesses = 10;
+    lowNum = 1;
+    highNum = 100;
+    nextStepParent.innerText = `Enter a number between ${lowNum} and ${highNum}`
 }
 
 mainSection.addEventListener("click", checkGuess)
+tryAgain.addEventListener("click", restart)
