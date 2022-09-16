@@ -16,24 +16,29 @@ userGuess.select();
 
 function checkGuess(e) {
     e.preventDefault();
-    if(e.target.id == "guess"){
-        console.log("Checking the guess")
-        userGuessInt = Number(userGuess.value);
-        userGuess.value = "";
-        if((userGuessInt == randomNumber) || (guesses == 0)){
-            winOrLose();
-        } else {
-            guessWrong()
+    if(!isNaN(parseFloat(userGuess.value)) && ((parseFloat(userGuess.value) > 0) && (parseFloat(userGuess.value) < 101))){
+        if(e.target.id == "guess"){
+            console.log("Checking the guess")
+            userGuessInt = Number(userGuess.value);
+            userGuess.value = "";
+            if((userGuessInt == randomNumber) || (guesses == 0)){
+                winOrLose();
+            } else {
+                guessWrong()
+            }
+            guesses--
         }
-        
+    } else {
+        nextStepParent.innerText = `Please enter a number between ${lowNum} and ${highNum}`
     }
-    guesses--
+    
+    
 }
 
 
 function guessWrong() {
     console.log("The Guess Is Incorrect")
-        statusChild = "You Guessed Incorrectly";
+        statusParent.innerHTML = "You Guessed Incorrectly";
         if(userGuessInt > randomNumber){
                 console.log("The Guess Is High")
                 highNum = userGuessInt;
@@ -48,11 +53,13 @@ function guessWrong() {
 
 function winOrLose () {
     if(userGuessInt == randomNumber){
-        statusChild = "You Guessed Correctly";
+        statusParent.innerHTML = "You Guessed Correctly!";
         nextStepParent.innerText = `Click Here to Play Again`
+        attemptsParent.style.display = "none";
     } else {
         statusChild = "You Lose!";
         nextStepParent.innerText = `You Used all of your guesses.`
+        attemptsParent.style.display = "none";
     }
     tryAgain.style.opacity = "1";
 
@@ -87,6 +94,7 @@ function restart(){
     lowNum = 1;
     highNum = 100;
     nextStepParent.innerText = `Enter a number between ${lowNum} and ${highNum}`
+    attemptsParent.style.display = "none";
 }
 
 mainSection.addEventListener("click", checkGuess)
