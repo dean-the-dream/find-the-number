@@ -5,12 +5,13 @@ let userGuessInt;
 let lowNum = 1;
 let highNum = 100;
 let guesses = 10;
-let attemptsParent = document.querySelector("#attempts p");
-let statusParent = document.querySelector("#status p");
+const attemptsParent = document.querySelector("#attempts p");
+const statusParent = document.querySelector("#status p");
 let statusChild;
-let nextStepParent = document.querySelector("#next-step p");  //.innerHTML = `<p>You have ${guesses} guesses left!</p>`
+const nextStepParent = document.querySelector("#next-step p");
+
+
 function checkGuess(e) {
-    
     e.preventDefault();
     if(e.target.id == "guess"){
         console.log("Checking the guess")
@@ -58,7 +59,20 @@ function winOrLose () {
 function displayResults () {
     console.log("Displaying Results")
     statusParent.innerText = statusChild;
-    attemptsParent.innerText = `You have ${guesses} guesses left!`;
+    switch (guesses){
+        case 10:
+            attemptsParent.innerText = `You have ${guesses} guesses!`;  
+            break;  
+        case 1:
+            attemptsParent.innerText = `You have ${guesses} guess left!`;  
+            break;
+        case 0:
+            attemptsParent.innerText = `No More Guesses!`;  
+            break;
+        default:
+            attemptsParent.innerText = `You have ${guesses} guesses left!`
+    }
+
     nextStepParent.innerText = `Enter a number between ${lowNum} and ${highNum}`;
 }
 
