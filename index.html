@@ -8,39 +8,42 @@
     <title>Guess The Number</title>
 </head>
 <body>
-    <section id="instructions">
-        <p>These are instructions for how to play the game:</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis sit autem dolor nesciunt rem optio voluptatum doloribus impedit alias temporibus quo assumenda, vel modi esse facere delectus voluptas necessitatibus odit?
-        Voluptatem laborum doloribus, omnis ullam ut aliquam voluptatibus alias, eos labore rem voluptates et aperiam dolorum. Vitae sapiente quas reprehenderit suscipit autem animi rerum quidem, eum molestiae odio qui commodi!
-        Nostrum laborum nihil a asperiores commodi vitae iusto quod corporis aliquid voluptatum ut fugit blanditiis aperiam repellendus fugiat atque tempora, repudiandae ex ipsam sit similique quo! Quos quo expedita possimus!
-       
-        </p>
-    </section>
-    <section id=main>
-        <header>
-            <div id="title"><h1><span>Guess</span> <span>The Number</span></h1></div>
-            <div id="number-pic"></div>
-        </header>
-        <div id="input">
-            <form action=submit>
-                <input type="number" max="100" min="1" >
-                <button id="guess">GUESS!</button>
-            </form>
-        </div>
-        <div id="hint">
-            <div id="next-step"><p>Enter a number between 1 and 100</p></div>
-            <div id="attempts"><p>You have 5 guesses left!</p></div>
-            <div id="status"><p>Guess correctly!<!-- Let's the user know if they have guessed correctly or not --></p></div> 
+    
+        <section id="instructions" class="column column--right">
+            <p>These are instructions for how to play the game:</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis sit autem dolor nesciunt rem optio voluptatum doloribus impedit alias temporibus quo assumenda, vel modi esse facere delectus voluptas necessitatibus odit?
+            Voluptatem laborum doloribus, omnis ullam ut aliquam voluptatibus alias, eos labore rem voluptates et aperiam dolorum. Vitae sapiente quas reprehenderit suscipit autem animi rerum quidem, eum molestiae odio qui commodi!
+            Nostrum laborum nihil a asperiores commodi vitae iusto quod corporis aliquid voluptatum ut fugit blanditiis aperiam repellendus fugiat atque tempora, repudiandae ex ipsam sit similique quo! Quos quo expedita possimus!
+           
+            </p>
+        </section>
+        <section id=main class="column column--middle">
+            <header class="column--middle__title-container">
+                <div id="title"><h1><span>Guess</span> <span>The Number</span></h1></div>
+                <div id="number-pic"></div>
+            </header>
+            <div id="input">
+                <form action=submit>
+                    <input type="number" max="100" min="1" >
+                    <button id="guess">GUESS!</button>
+                </form>
+            </div>
+            <div id="hint">
+                <div id="next-step"><p>Enter a number between 1 and 100</p></div>
+                <div id="attempts"><p>You have 5 guesses left!</p></div>
+                <div id="status"><p>Guess correctly!<!-- Let's the user know if they have guessed correctly or not --></p></div> 
+                
+            </div>
+            <div id="result">
+                <div><button id="try-again">Try Again</button></div>
+                <div id="graphic"></div>
+                
+            </div>
             
-        </div>
-        <div id="result">
-            <div><button id="try-again">Try Again</button></div>
-            <div id="graphic"></div>
-            
-        </div>
-        
-    </section>
-    <section class="placeholder"></section>
+        </section>
+        <section class="placeholder" class="column column--left"></section> 
+    
+
     <script src="./main.js"></script>
 </body>
 </html>
