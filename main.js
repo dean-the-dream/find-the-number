@@ -19,7 +19,7 @@ function checkGuess(e) {
     if(!isNaN(parseFloat(userGuess.value)) && ((parseFloat(userGuess.value) > 0) && (parseFloat(userGuess.value) < 101))){
         if(e.target.id == "guess"){
             console.log("Checking the guess")
-            userGuessInt = Number(userGuess.value);
+            userGuessInt = +userGuess.value;
             userGuess.value = "";
             if((userGuessInt == randomNumber) || (guesses == 0)){
                 winOrLose();
@@ -41,10 +41,10 @@ function guessWrong() {
         statusParent.innerHTML = "You Guessed Incorrectly";
         if(userGuessInt > randomNumber){
                 console.log("The Guess Is High")
-                highNum = userGuessInt;
+                userGuessInt < highNum ? lowNum = userGuessInt : null;
             } else {
                 console.log("The Guess Is Low")
-                lowNum = userGuessInt;
+                userGuessInt > lowNum ? lowNum = userGuessInt : null;
             }
             displayResults()
     } 
