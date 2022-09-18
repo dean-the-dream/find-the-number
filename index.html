@@ -5,45 +5,65 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./main.css">
-    <title>Guess The Number</title>
+    <title>Guess The Number Update</title>
 </head>
 <body>
-
-        <section id="instructions" class="column column--right">
-            <p>These are instructions for how to play the game:</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis sit autem dolor nesciunt rem optio voluptatum doloribus impedit alias temporibus quo assumenda, vel modi esse facere delectus voluptas necessitatibus odit?
-            Voluptatem laborum doloribus, omnis ullam ut aliquam voluptatibus alias, eos labore rem voluptates et aperiam dolorum. Vitae sapiente quas reprehenderit suscipit autem animi rerum quidem, eum molestiae odio qui commodi!
-            Nostrum laborum nihil a asperiores commodi vitae iusto quod corporis aliquid voluptatum ut fugit blanditiis aperiam repellendus fugiat atque tempora, repudiandae ex ipsam sit similique quo! Quos quo expedita possimus!
-           
-            </p>
-        </section>
-        <section id=main class="column column--middle">
-            <header class="column--middle__title-container">
-                <div id="title"><h1><span>Guess</span> <span>The Number</span></h1></div>
-                <div id="number-pic"></div>
-            </header>
-            <div id="input">
-                <form action=submit>
-                    <input type="number" max="100" min="1" >
-                    <button id="guess">GUESS!</button>
-                </form>
+    <div class="container">
+        <div class="main-box main-box--top">
+            <div class="main-box__header-content">  
+                <div class="main-box__header-logo">
+                    <img src="./img/game.png" alt="">
+                </div>
+                <nav class="main-box__header-nav-bar">
+                    <h1>Guess The Number</h1>
+                </nav>
+                <div class="main-box__button-holder buttons--green">
+                    <button class="buttons button--green my-page">My Page</button>
+                </div>
             </div>
-            <div id="hint">
-                <div id="next-step"><p>Enter a number between 1 and 100</p></div>
-                <div id="attempts"><p>You have 5 guesses left!</p></div>
-                <div id="status"><p>Guess correctly!<!-- Let's the user know if they have guessed correctly or not --></p></div> 
-                
+            <div class="main-box__body-content main-box__body-content--light">
+                <div class="main-box__body-left">
+                    <div class="main-box__body-title">
+                        <h2>How It Works</h2>
+                    </div>
+                    
+                    <div class="main-box__body-paragraph--light">
+                        <p>Enter a number from 1 to 100</p>
+                        <p>If you guess correctly you win!</p>
+                        <p>If you guess incorrectly you lose a turn!</p>
+                        <p>You get a hint every time you guess a number.</p>
+                        <p>Once you run out of turns, game over!</p>
+                        <p>Good Luck!</p>
+                    </div>
+                </div>
+                <div class="main-box__body-right">
+                    <form class="main-box__input-container">
+                        <input class="main-box__input" type="number">
+                        <div class=" main-box__body-button-wrapper">
+                        <button class="buttons buttons--green check" type="submit">Guess</button>
+                        <button class="buttons buttons--white try-again">Start Over</button>
+                        </div>  
+                    </form>
+                    <div class="guess">
+                        <p class="guess__hint">Enter a number between 1 and 100</p>
+                        <p class="guess__remaining">You have 5 guesses!</p>
+                        <p class="guess__results"><!--You guessed correctly!--></p>
+                    </div>
+                    
+                </div>
             </div>
-            <div id="result">
-                <div><button id="try-again">Try Again</button></div>
-                <div id="graphic"></div>
-                
+        </div>
+        <!-- <div class="main-box main-box--bottom">
+            <div class="main-box__body-content main-box__body-content--dark">
+                <div class="main-box__body-left">
+                    <div class="main-box__body-title"></div>
+                    <div class="main-box__body-paragraph--bold"></div>
+                    <div class="main-box__body-paragraph--dark"></div>
+                </div>
+                <div class="main-box__body-graphic"></div>
             </div>
-            
-        </section>
-        <section class="placeholder" class="column column--left"></section> 
-    
-
+        </div>
+    </div> -->
     <script src="./main.js"></script>
 </body>
 </html>
