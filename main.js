@@ -5,18 +5,19 @@ let userGuessInt;
 let lowNum = 1;
 let highNum = 100;
 let guesses = 10;
-const attemptsParent = document.querySelector(".guess__remaining");
-let statusParent = document.querySelector(".guess__results");
+const guessesRemaining = document.querySelector(".guess__remaining");
+let guessResults = document.querySelector(".guess__results");
 let statusChild;
-const nextStepParent = document.querySelector(".guess__hint");
+const guessHint = document.querySelector(".guess__hint");
 const tryAgain = document.querySelector(".try-again");
-attemptsParent.innerHTML=`You have ${guesses} guesses!`
+guessesRemaining.innerHTML=`You have ${guesses} guesses!`
+let gameFinished = false
 userGuess.focus();
 userGuess.select();
 
 function checkGuess(e) {
     e.preventDefault();
-    if(!isNaN(parseFloat(userGuess.value)) && ((parseFloat(userGuess.value) > 0) && (parseFloat(userGuess.value) < 101))){
+    if(!isNaN(parseFloat(userGuess.value)) && ((parseFloat(userGuess.value) > 0) && (parseFloat(userGuess.value) < 101)  && (gameFinished == false))){
         if(e.target.className.includes("check")){
             console.log("Checking the guess")
             userGuessInt = +userGuess.value;
@@ -29,7 +30,7 @@ function checkGuess(e) {
             
         }
     } else {
-        nextStepParent.innerText = `Please enter a number between ${lowNum} and ${highNum}`
+        guessHint.innerText = `Please enter a number between ${lowNum} and ${highNum}`
     }
     guesses--
     
@@ -38,8 +39,8 @@ function checkGuess(e) {
 
 function guessWrong() {
     console.log("The Guess Is Incorrect")
-    statusParent.innerText = "You Guessed Incorrectly";
-    if(userGuessInt > randomNumber){
+    guessResults.innerText = "You Guessed Incorrectly";
+    if(userGuessInt > randomNumber && (guesses > 0)){
             console.log("The Guess Is High")
             userGuessInt < highNum ? highNum = userGuessInt : null;
         } else {
@@ -53,14 +54,16 @@ function guessWrong() {
 
 function winOrLose () {
     if(userGuessInt == randomNumber){
-        statusParent.innerHTML = "You Guessed Correctly!";
-        nextStepParent.innerText = `Click Here to Play Again`
-        attemptsParent.style.display = "none";
+        guessResults.innerHTML = "You Win!";
+        guessHint.style.display = "none";
+        guessesRemaining.innerText = "You Guessed Correctly!";
     } else {
         statusChild = "You Lose!";
-        nextStepParent.innerText = `You Used all of your guesses.`
-        attemptsParent.style.display = "none";
+        guessesRemaining.innerText = `You used all of your guesses.`
+        guessHint.style.display = "none";
+        guessResults.innerText = "You Loose"
     }
+    gameFinished = true;
     tryAgain.style.opacity = "1";
 
 }
@@ -68,33 +71,37 @@ function winOrLose () {
 
 function displayResults () {
     console.log("Displaying Results")
-    // statusParent.innerText = statusChild;
+    // guessResults.innerText = statusChild;
     switch (guesses){
         case 10:
-            attemptsParent.innerText = `You have ${guesses} guesses!`;  
+            guessesRemaining.innerText = `You have ${guesses} guesses!`;  
             break;  
         case 1:
-            attemptsParent.innerText = `You have ${guesses} guess left!`;  
+            guessesRemaining.innerText = `You have ${guesses} guess left!`;  
             tryAgain.style = "transparency: 1;"
             break;
         case 0:
-            attemptsParent.innerText = `No More Guesses!`;  
+            guessesRemaining.innerText = `No More Guesses!`;  
             break;
         default:
-            attemptsParent.innerText = `You have ${guesses} guesses left!`
+            guessesRemaining.innerText = `You have ${guesses} guesses left!`
     }
     
-    nextStepParent.innerText = `Enter a number between ${lowNum} and ${highNum}`;
+    guessHint.innerText = `Enter a number between ${lowNum} and ${highNum}`;
 }
 
 
 function restart(){
+    gameFinished = false;
     tryAgain.style = null;
     guesses = 10;
     lowNum = 1;
     highNum = 100;
-    nextStepParent.innerText = `Enter a number between ${lowNum} and ${highNum}`
-    attemptsParent.style.display = "none";
+    guessHint.innerText = `Enter a number between ${lowNum} and ${highNum}`;
+    guessHint.style.display = null;
+    guessesRemaining.innerHTML=`You have ${guesses} guesses!`;
+    userGuess.value = ""
+    guessResults.style.display = "none"
 }
 
 mainSection.addEventListener("click", checkGuess)
