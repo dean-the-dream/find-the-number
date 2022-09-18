@@ -1,15 +1,15 @@
 const randomNumber = Math.floor(Math.random() * 100) + 1;
-const mainSection = document.querySelector("#main");
+const mainSection = document.querySelector(".main-box__body-right");
 let userGuess = document.querySelector("input");
 let userGuessInt;
 let lowNum = 1;
 let highNum = 100;
 let guesses = 10;
-const attemptsParent = document.querySelector("#attempts p");
-const statusParent = document.querySelector("#status p");
+const attemptsParent = document.querySelector(".guess__remaining");
+let statusParent = document.querySelector(".guess__results");
 let statusChild;
-const nextStepParent = document.querySelector("#next-step p");
-const tryAgain = document.querySelector("#try-again");
+const nextStepParent = document.querySelector(".guess__hint");
+const tryAgain = document.querySelector(".try-again");
 attemptsParent.innerHTML=`You have ${guesses} guesses!`
 userGuess.focus();
 userGuess.select();
@@ -17,7 +17,7 @@ userGuess.select();
 function checkGuess(e) {
     e.preventDefault();
     if(!isNaN(parseFloat(userGuess.value)) && ((parseFloat(userGuess.value) > 0) && (parseFloat(userGuess.value) < 101))){
-        if(e.target.id == "guess"){
+        if(e.target.className.includes("check")){
             console.log("Checking the guess")
             userGuessInt = +userGuess.value;
             userGuess.value = "";
@@ -26,27 +26,27 @@ function checkGuess(e) {
             } else {
                 guessWrong()
             }
-            guesses--
+            
         }
     } else {
         nextStepParent.innerText = `Please enter a number between ${lowNum} and ${highNum}`
     }
-    
+    guesses--
     
 }
 
 
 function guessWrong() {
     console.log("The Guess Is Incorrect")
-        statusParent.innerHTML = "You Guessed Incorrectly";
-        if(userGuessInt > randomNumber){
-                console.log("The Guess Is High")
-                userGuessInt < highNum ? lowNum = userGuessInt : null;
-            } else {
-                console.log("The Guess Is Low")
-                userGuessInt > lowNum ? lowNum = userGuessInt : null;
-            }
-            displayResults()
+    statusParent.innerText = "You Guessed Incorrectly";
+    if(userGuessInt > randomNumber){
+            console.log("The Guess Is High")
+            userGuessInt < highNum ? highNum = userGuessInt : null;
+        } else {
+            console.log("The Guess Is Low")
+            userGuessInt > lowNum ? lowNum = userGuessInt : null;
+        }
+    displayResults()
     } 
 
     
@@ -68,7 +68,7 @@ function winOrLose () {
 
 function displayResults () {
     console.log("Displaying Results")
-    statusParent.innerText = statusChild;
+    // statusParent.innerText = statusChild;
     switch (guesses){
         case 10:
             attemptsParent.innerText = `You have ${guesses} guesses!`;  
