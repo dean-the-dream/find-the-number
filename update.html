@@ -15,11 +15,7 @@
                     <img src="./img/9ac1859618b5cf17e81966d87a0029e0.png" alt="">
                 </div>
                 <nav class="main-box__header-nav-bar">
-                    <span>Home</span>
-                    <span>About</span>
-                    <span>Prices</span>
-                    <span>Blog</span>
-                    <span>Contact</span>
+                    <h1>Guess The Number</h1>
                 </nav>
                 <div class="main-box__button-holder buttons--green">
                     <button class="buttons button--green">My Page</button>
@@ -27,23 +23,32 @@
             </div>
             <div class="main-box__body-content main-box__body-content--light">
                 <div class="main-box__body-left">
-                    <div class="main-box__body-title"><h1>Doing the right thing, at the right time</h1></div>
+                    <div class="main-box__body-title">
+                        <h1>How It Works</h1></div>
                     <div class="main-box__body-paragraph--light">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium optio accusamus ullam. Id saepe doloribus doloremque obcaecati unde iure sapiente perferendis odio, rerum quibusdam eligendi? Ratione aut labore repellat sint.</p>
-                    </div>
-                    <div class="buttons main-box__body-button-wrapper">
-                        <button class="buttons buttons--green">Guess</button>
-                        <button class="buttons buttons--white">Start Over</button>
-                        
+                        <p>Enter a number from 1 to 100</p>
+                        <p>If you guess correctly you win!</p>
+                        <p>If you guess incorrectly you lose a turn!</p>
+                        <p>You get a hint every time you guess a number.</p>
+                        <p>Once you run out of turns, game over!</p>
+                        <p>Good Luck!</p>
                     </div>
                 </div>
                 <div class="main-box__body-right">
-                    <div class="main-box__body-graphic"></div>
+                    <div class="main-box__guess-container">
+                        <input class="guess__input" type="number">
+                        <p class="guess__remaining">You have 5 guesses left!</p>
+                        <p class="guess__hint">Enter a number between 1 and 100</p>
+                        <p class="guess__results">You guessed correctly!</p>
+                    </div>
+                    <div class=" main-box__body-button-wrapper">
+                        <button class="buttons buttons--green">Guess</button>
+                        <button class="buttons buttons--white">Start Over</button>
+                    </div>
                 </div>
-                
             </div>
         </div>
-        <div class="main-box main-box--bottom">
+        <!-- <div class="main-box main-box--bottom">
             <div class="main-box__body-content main-box__body-content--dark">
                 <div class="main-box__body-left">
                     <div class="main-box__body-title"></div>
@@ -53,7 +58,6 @@
                 <div class="main-box__body-graphic"></div>
             </div>
         </div>
-    </div>
-    
+    </div> -->
 </body>
 </html>
