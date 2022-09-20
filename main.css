@@ -18,27 +18,22 @@ body{
     margin: 0 auto;
     width: 80%; 
     min-width: 400px;
-    /* border-top-left-radius: 30px;
-    border-top-right-radius: 30px; */
     border-radius: 30px;
     box-shadow: 1px 1px 15px black;
+    min-width: 844.8px;
     
 }
 
 
 .main-box{
-    height:300px;
-    width: 100%;
-    /* border-top-left-radius: 30px;
-    border-top-right-radius: 30px; */
-    border-radius: 30px;
-}
-
-.main-box--top{
     width:100%;
     background-color: rgb(12, 56, 101);
     height:600px;   
+    width: 100%;
+    min-width: 844.8px;
+    border-radius: 30px;
 }
+
 .main-box__header-content{
     display: flex;
     align-items: center;
@@ -148,4 +143,11 @@ input::-webkit-inner-spin-button {
 
 .my-page{
     display: none;
+}
+
+@media (max-width: 1264px ){
+    .main-box__body-left{
+        font-size: 1.5em;
+
+    }
 }
